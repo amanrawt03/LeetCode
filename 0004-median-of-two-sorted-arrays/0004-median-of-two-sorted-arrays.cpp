@@ -5,6 +5,7 @@ public:
     {
         int n = nums1.size();
         int m = nums2.size();
+
         vector<int> nums3;
 
         for (int i = 0; i < n; i++)
@@ -18,16 +19,17 @@ public:
         }
 
         sort(nums3.begin(), nums3.end());
-        int o = nums3.size();
-        if (o % 2 == 1)
+
+        int o = nums3.size()/2;
+        if (nums3.size() % 2 != 0)
         {
-            return static_cast<double>(nums3[o / 2]);
+            return (double) nums3[o];
+
         }
         else
         {
-            int middle1 = nums3[o / 2 - 1];
-            int middle2 = nums3[o / 2];
-            return (static_cast<double>(middle1) + static_cast<double>(middle2)) / 2.0;
+            double median = ((double)nums3[o] + (double)nums3[o - 1]) /2;
+            return median;
         }
     }
 };
